@@ -1,0 +1,547 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: #17232d;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px #ccc solid;
+  padding: 5px;
+  background: white;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+nav button:last-child {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+button {
+  margin-left: 6px;
+}
+
+.scroller {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pages {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 300vw;
+}
+
+.steps {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.page {
+  width: 100vw;
+}
+
+.step {
+  padding: 12px 0;
+}
+
+.active {
+  background-color: blue;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-family: sans-serif;
+  vertical-align: middle;
+  margin-left: 5px;
+  letter-spacing: 1px;
+}
+
+.screen {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+button,
+button:hover,
+button:active,
+button:focus,
+button:visited,
+.btn,
+.btn:hover,
+.btn:active,
+.btn:focus,
+.btn:visited {
+  text-decoration: none !important;
+  outline: none !important;
+}
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  opacity: 1;
+}
+
+#quiz {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#quiz .container-fluid {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-question-container {
+  width: 60%;
+}
+
+#quiz-stats {
+  padding: 16px 50px 12px 50px;
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  background-color: #5c51ce;
+  position: relative;
+  width: 570px;
+  flex-basis: 100%;
+  border-radius: 50px;
+  border: 1px solid white;
+
+  .quiz-metric {
+    padding: 0px 20px;
+  }
+}
+
+#quiz-stats .fa-bar-chart {
+  font-size: 56px;
+  color: rgba(0, 0, 0, 0.8);
+}
+#quiz-stats > div > p {
+  padding: 0;
+  margin: 0;
+}
+#quiz-stats > div > span {
+  font-size: 24px;
+}
+#quiz-stats > div > span.fadeIn {
+  animation-duration: 0.375s;
+}
+#quiz-stats > div > span.fadeOut {
+  animation-duration: 0.375s;
+}
+#quiz-question {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 30px;
+  line-height: 40px;
+  margin: 32px 0 26px 0;
+}
+#quiz-options {
+  margin: 26px 0;
+}
+.quiz-ans-btn {
+  font-size: 20px;
+  color: #000;
+  /* display: block; */
+  width: 45%;
+  min-height: 120px;
+  padding: 5px;
+  background-color: #febf2f;
+  border: 1px solid white;
+  border-radius: 50px;
+  outline: none;
+  letter-spacing: 0.05em;
+  transition: all 0.5s;
+  margin: 8px;
+  /* margin: auto; */
+  box-shadow: 0px 1px 4px rgb(0 0 0 / 10%);
+  white-space: normal;
+}
+
+.quiz-ans-btn:hover {
+  color: #fff;
+  background-color: #476b6b;
+  cursor: pointer;
+}
+.btn.quiz-ans-btn:active,
+.btn.quiz-ans-btn:focus {
+  color: #fff;
+  background-color: #334d4d;
+}
+.quiz-ans-btn.correct {
+  background-color: #29a329;
+}
+.quiz-ans-btn.incorrect {
+  background-color: #e60000;
+}
+#quiz-play-again {
+  overflow-y: hidden;
+  display: none;
+}
+#quiz-play-again-btn {
+  display: block;
+  font-size: 32px;
+  color: #fff;
+  background-color: #669999;
+  border: 8px double #fff;
+  border-radius: 14px;
+  padding: 5px 10px;
+  width: 33%;
+  min-height: 100px;
+  outline: none;
+  letter-spacing: 0.05em;
+  transition: all 0.5s;
+  margin: 0px auto;
+  white-space: normal;
+}
+#quiz-play-again-btn:hover {
+  color: #fff;
+  background-color: #476b6b;
+}
+#quiz-play-again-btn:active,
+#quiz-play-again-btn:focus {
+  color: #fff;
+  background-color: #334d4d;
+}
+#quiz-play-again-btn.pulse {
+  animation-duration: 2s;
+}
+
+@media (max-width: 768px) {
+  #quiz-stats {
+    display: flex;
+    justify-content: center;
+  }
+
+  #quiz-question {
+    font-size: 16px;
+    margin: 20px 0 14px 0;
+  }
+  #quiz-options {
+    margin: 14px 0 20px 0;
+  }
+  .quiz-ans-btn {
+    font-size: 16px;
+    min-height: 65px;
+  }
+  #quiz-play-again-btn {
+    font-size: 28px;
+    width: 66%;
+  }
+}
+
+.column {
+  margin: 2%;
+  flex: 1 1 0;
+  position: relative;
+  padding: 1rem;
+  min-height: 33vh;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all ease-in-out 0.3s;
+  min-width: calc(33.33% / 2);
+}
+section:nth-of-type(5) .column:first-of-type {
+  flex-grow: 2;
+  flex-shrink: 2;
+  flex-basis: 22px;
+}
+section:nth-of-type(6) .column:nth-of-type(2) {
+  flex-grow: 4;
+  flex-shrink: 4;
+  flex-basis: 66px;
+}
+.column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all ease-in-out 0.5s;
+}
+.column:hover {
+  color: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+/* Color Overlay position */
+.column::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out 0.5s;
+}
+
+/* Removed effects to show original on hover */
+.column:hover::after,
+.column:hover,
+.column:hover img {
+  filter: none;
+  -webkit-filter: none;
+  mix-blend-mode: unset !important;
+  background: transparent;
+}
+
+.flat-retro {
+  background-color: #fca300;
+}
+.flat-retro img {
+  mix-blend-mode: darken;
+  -webkit-filter: grayscale(100%) contrast(1.5);
+  filter: grayscale(100%) contrast(1.5);
+}
+.flat-retro::after {
+  background-color: #e23241;
+  mix-blend-mode: lighten;
+}
+.welcome-wrapper {
+  width: 50%;
+}
+
+.welcome-copy {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.welcome-copy__header {
+  flex-basis: 100%;
+}
+
+.welcome-copy__input {
+  width: 100%;
+  border: 1px solid #e1e5e6;
+  border-radius: 25px;
+  min-height: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.column-reset::after,
+.column-reset,
+.column-reset img {
+  filter: none;
+  -webkit-filter: none;
+  mix-blend-mode: unset !important;
+  background: transparent;
+}
+
+.main-header {
+  position: relative;
+}
+
+.main-header button {
+  z-index: 3;
+}
+
+.red-purple {
+  background-color: #e41c2d;
+}
+.red-purple img {
+  mix-blend-mode: multiply;
+  -webkit-filter: grayscale(100%) contrast(1);
+  filter: grayscale(100%) contrast(0.8);
+}
+.red-purple::after {
+  content: '';
+  background-color: #1d3162;
+  mix-blend-mode: lighten;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ad-position {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 3%;
+}
+
+/*
+  https://developer.mozilla.org/en/docs/Web/CSS/box-shadow
+  box-shadow: [inset?] [top] [left] [blur] [size] [color];
+
+  Tips:
+    - We're setting all the blurs to 0 since we want a solid fill.
+    - Add the inset keyword so the box-shadow is on the inside of the element
+    - Animating the inset shadow on hover looks like the element is filling in from whatever side you specify ([top] and [left] accept negative values to become [bottom] and [right])
+    - Multiple shadows can be stacked
+    - If you're animating multiple shadows, be sure to keep the same number of shadows on hover/focus as non-hover/focus (even if you have to create a transparent shadow) so the animation is smooth. Otherwise, you'll get something choppy.
+*/
+
+// Animate the size, inside
+.fill:hover,
+.fill:focus {
+  box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+// Animate the size, outside
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+// Stack multiple shadows, one from the left, the other from the right
+.close:hover,
+.close:focus {
+  box-shadow: inset -3.5em 0 0 0 var(--hover), inset 3.5em 0 0 0 var(--hover);
+}
+
+// Size can also be negative; see how it's smaller than the element
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+// Animating from the bottom
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+  cursor: pointer;
+}
+
+// And from the left
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+// Multiple shadows, one on the outside, another on the inside
+.offset {
+  box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+  }
+}
+
+//=== Set button colors
+// If you wonder why use Sass vars or CSS custom properties...
+// Make a map with the class names and matching colors
+$colors: (
+  fill: #a972cb,
+  pulse: #ef6eae,
+  close: #ff7f82,
+  raise: #ffa260,
+  up: #e4cb58,
+  slide: #8fc866,
+  offset: #19bc8b,
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+// Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+//=== Pen styling, ignore
+body {
+  color: #fff;
+  background: hsl(227, 10%, 10%);
+  font: 300 1em 'Fira Sans', sans-serif;
+
+  // Center everything ever
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+// Basic button styles
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+code {
+  color: #e4cb58;
+  font: inherit;
+}
+
+.review-page-wrapper__comment {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 46px;
+  line-height: 52px;
+}
+
+.review-page-wrapper__questions-correct {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 36px;
+  line-height: 40px;
+}
